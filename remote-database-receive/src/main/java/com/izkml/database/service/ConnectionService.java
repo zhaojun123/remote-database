@@ -32,6 +32,9 @@ public class ConnectionService {
         }
         String transcationId = paramWrapper.getTranscationId();
         Connection connection = connectionPool.get(transcationId);
+        connection.setAutoCommit(paramWrapper.getAutoCommit());
+        connection.setTransactionIsolation(paramWrapper.getTransactionIsolation());
+        connection.setSchema(paramWrapper.getSchema());
         return connection;
     }
 
